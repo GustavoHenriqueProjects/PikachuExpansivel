@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #F5CF06;
+    --secondary-color: #8E4106;
+    --white: #ffffff;
+    --default-space: 70px;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    padding-left: var(--default-space);
+    padding-top: var(--default-space);
+    padding-right: var(--default-space);
+    padding-bottom: 24px;
+    font-family: 'Righteous', cursive;
+}
+
+header {
+    height: 48px;
+}
+
+.logo {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+main {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    position: relative;
+}
+
+.title {
+    grid-column: 1/-1;
+    place-self: center;
+    position: relative;
+}
+
+.title__text {
+    font-size: 20vw;
+    color: var(--white);
+}
+
+.title__transparent {
+    font-size: 27vw;
+    color: #FFFFFF55;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.description {
+    grid-column: 1/7;
+    place-self: center start;
+    color: var(--secondary-color);
+}
+
+.description__title {
+    font-size: 4rem;
+    object-position: top;
+}
+
+.description__text {
+    font-size: 1.2rem;
+    width: 490px;
+}
+
+.action {
+    grid-column: 8/-1;
+    place-self: center end;
+    height: 100px;
+    width: 411px;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 3rem;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.action:hover {
+    background-color: #ffffff;
+    color: var(--secondary-color);
+}
+
+footer {
+    text-align: center;
+    color: var(--secondary-color);
+    z-index: 2;
+}
+
+.pikachu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* TABLET */
+
+@media (max-width: 960px) {
+     :root {
+        --primary-color: #F5CF06;
+        --secondary-color: #8E4106;
+        --white: #ffffff;
+        --default-space: 30px;
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
+    .title {
+        place-self: start center;
+    }
+    .pikachu {
+        transform: translate(-50%, -60%);
+    }
+    .description {
+        grid-row: 2;
+        grid-column: 1;
+        place-self: center;
+        text-align: center;
+    }
+    .action {
+        grid-row: 2;
+        grid-column: 1;
+        place-self: end center;
+    }
+    footer {
+        display: none;
+    }
+}
+
+@media (max-width:640px) {
+    .title{
+        transform: translate( 30px);
+    }
+
+    .description__text {
+    display: none;
+
+    }
+    .description__title{
+        font-size: 10vw;
+    }
+    .action{
+        width: 100%;
+    }
+    .pikachu{
+        width:  90vw;
+        transform: translate(-50%, -50%);
+    }
+
+}
